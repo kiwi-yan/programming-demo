@@ -10,7 +10,7 @@ pid_t *pids;
 
 /** 子进程主函数 **/
 void child_main();
-/** 生成一个子进程，返回进程ID **/
+/** 生成一个子进程, 返回进程ID **/
 pid_t make_child();
 /** SIGCHLD信号处理函数 **/
 void sig_child(int sig);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         pids[i] = make_child();
     }
     
-    /** 进入“死循环” **/
+    /** 进入"死循环" **/
     for (; ;)
         pause();
     exit(EXIT_SUCCESS);
@@ -61,7 +61,7 @@ void child_main()
         exit(EXIT_FAILURE);
 }
 
-/** 生成一个子进程，返回进程ID **/
+/** 生成一个子进程, 返回进程ID **/
 pid_t make_child()
 {
     pid_t pid;
@@ -75,7 +75,7 @@ pid_t make_child()
     child_main();
 }
 
-/** SIGCHLD信号处理函数：当一个子进程结束后，再次生成一个子进程 **/
+/** SIGCHLD信号处理函数: 当一个子进程结束后, 再次生成一个子进程 **/
 void sig_child(int sig)
 {
     pid_t pid;
@@ -92,13 +92,13 @@ void sig_child(int sig)
     }
 }
 
-/** SIGINT信号处理函数：此进程被中断时，给所有子进程发送SIGTERM信号，杀死所有子进程 **/
+/** SIGINT信号处理函数: 此进程被中断时, 给所有子进程发送SIGTERM信号, 杀死所有子进程 **/
 void sig_int(int sig)
 {
     int i;
     time_t t;
     
-    /** 恢复SIGCHLD的信号处理函数，防止杀死后重启 **/
+    /** 恢复SIGCHLD的信号处理函数, 防止杀死后重启 **/
     if (signal(SIGCHLD, SIG_DFL) == SIG_ERR) {
         perror("signal SIGCHLD [default] error");
         exit(EXIT_FAILURE);

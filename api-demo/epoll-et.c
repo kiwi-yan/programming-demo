@@ -11,7 +11,7 @@
 #define SERV_PORT   1234    /* 服务器监听端口 */
 #define MAX_EVENTS  10
 
-/** 建立tcp套接字并监听指定的端口（服务端），函数定义参见`api-demo/select-demo.c' **/
+/** 建立tcp套接字并监听指定的端口(服务端), 函数定义参见`api-demo/select-demo.c' **/
 extern int tcp_server_socket(int port);
 /** TCP服务器主函数 **/
 int tcp_main(int client_fd);

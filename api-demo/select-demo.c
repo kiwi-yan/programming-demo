@@ -11,7 +11,7 @@
 #define SERV_PORT   1234    /* 服务器监听端口 */
 #define BACKLOG     12      /* 积压值 */
 
-/** 建立tcp套接字并监听指定的端口（服务端） **/
+/** 建立TCP套接字并监听指定的端口(服务端) **/
 int tcp_server_socket(int port);
 /** TCP服务器主函数 **/
 int tcp_main(int client_fd);
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     
     /** 简单的单进程select多路复用并发服务 **/
     for ( ; ; ) {
-        rset = allset;   /* select会修改传入的描述符集合，注意备份 */
+        rset = allset;   /* select会修改传入的描述符集合, 注意备份 */
         /** 获取可读的描述符 **/
         if ((nready = select(max_fd+1, &rset, NULL, NULL, NULL)) < 0) {
             perror("select error");
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
                     break;
                 }
             }
-            if (i == FD_SETSIZE) {      /* 连接数太多，服务器宣告崩溃 */
+            if (i == FD_SETSIZE) {      /* 连接数太多, 服务器宣告崩溃 */
                 fprintf(stderr, "too many clients\n");
                 exit(EXIT_FAILURE);
             }
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 }
 
 /** 建立tcp套接字并监听指定的端口（服务端） **/
-/** #!! 此函数会被其他函数重用 !!# **/
+/** #!! 此函数会被其他程序重用 !!# **/
 int tcp_server_socket(int port)
 {
     int sock_fd, opt;

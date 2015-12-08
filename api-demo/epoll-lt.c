@@ -10,7 +10,7 @@
 #define SERV_PORT   1234    /* 服务器监听端口 */
 #define MAX_EVENTS  10
 
-/** 建立tcp套接字并监听指定的端口（服务端），函数定义参见`api-demo/select-demo.c' **/
+/** 建立TCP套接字并监听指定的端口(服务端), 函数定义参见`api-demo/select-demo.c' **/
 extern int tcp_server_socket(int port);
 /** TCP服务器主函数 **/
 int tcp_main(int client_fd);
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
                 /* 将新连接加入epoll集合 */
                 ev.events = EPOLLIN;
                 ev.data.fd = client_fd;
-                if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, client_fd, &ev) == -1) {
+                if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, client_fd, &ev) < 0) {
                     perror("epoll_ctl_add-client_fd error");
                     exit(EXIT_FAILURE);
                 }
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
                     if (epoll_ctl(epoll_fd, EPOLL_CTL_DEL, events[i].data.fd, NULL) < 0) {
                         perror("epoll_ctl_del error");
                         exit(EXIT_FAILURE);
-                    }   /* 删除一个描述符时最后一个参数是被忽略的，但在Linux 2.6.9之前，这个参数不能为NULL */
+                    }   /* 删除一个描述符时最后一个参数是被忽略的, 但在Linux 2.6.9之前, 这个参数不能为NULL */
                     close(events[i].data.fd);
                 }
             }

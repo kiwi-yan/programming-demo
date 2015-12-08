@@ -1,5 +1,6 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <sys/wait.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -63,7 +64,7 @@ int main()
             perror("fork error");
             exit(EXIT_FAILURE);
         } else if (child_pid == 0) {    /* 子进程 */
-            close(listen_fd);  			/* 关闭无用的文件描述符 */
+            close(listen_fd);           /* 关闭无用的文件描述符 */
             tcp_main(client_fd);
             close(client_fd);
             exit(EXIT_SUCCESS);
