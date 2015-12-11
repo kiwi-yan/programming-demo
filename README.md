@@ -13,7 +13,7 @@
         epoll水平触发简单用法说明
 - [x] [`api-demo/epoll-et.c`](https://github.com/kiwi-yan/programming-demo/blob/master/api-demo/epoll-et.c):
         epoll边缘触发简单用法说明
-- [ ] `api-demo/poll-demo.c`:
+- [x] [`api-demo/poll-demo.c`](https://github.com/kiwi-yan/programming-demo/blob/master/api-demo/poll-demo.c):
         poll函数的用法说明
 - [ ] `notes/multiplexing.md`:
         I/O多路复用笔记
