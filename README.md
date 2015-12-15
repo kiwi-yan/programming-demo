@@ -15,12 +15,18 @@
         epoll边缘触发简单用法说明
 - [x] [`api-demo/poll-demo.c`](https://github.com/kiwi-yan/programming-demo/blob/master/api-demo/poll-demo.c):
         poll函数的用法说明
+- [x] [`data-structures/linkedlist/`](https://github.com/kiwi-yan/programming-demo/tree/master/data-structures/linkedlist/):
+        链表的实现
+- [ ] `data-structures/deque/`:
+        双端队列的实现
+- [ ] `data-structures/binary-tree/`:
+        各种二叉树的实现
 - [ ] `notes/multiplexing.md`:
         I/O多路复用笔记
+- [ ] `pattern-demo/fixed-memory-pool.c`:
+        一个简单的定长内存池
 - [ ] `pattern-demo/master-process2.c`:
         使用Master-Slave模型的简单网络服务器(进程池)
-- [ ] `data-structures/linkedlist/`:
-        链表的实现
 
 ## License
 The MIT License (MIT)
